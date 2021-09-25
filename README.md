@@ -11,4 +11,4 @@
 - Disposability (use of load balancer and heathcheck url configuration)
 - Dev/Prod parity (use of docker helps us to achieve same environment across stages)
 - Logs (use of splunk,ELK,DataDog helps to consume logs as event stream)
-- Admin processes
+- Admin processes (triggering processes like one time script,db backup should follow the codebase,config and release)
