@@ -2,6 +2,7 @@ package com.abc.bank.service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.math.BigDecimal;
 
 import javax.annotation.PostConstruct;
 
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.abc.bank.config.Configuration;
 import com.abc.bank.model.Account;
 import com.abc.bank.model.AccountType;
-import java.math.BigDecimal;
+
 @Service
 public class AccountService {
 	@Autowired
@@ -29,23 +30,22 @@ public class AccountService {
 		accountCache.put(account2.getAccountId(), account2);
 	}
 	
-	
-	public void createAccount(Account account){
-		
-		if(account.getAccountBlance().doubleValue() >= configuration.getMinBalance() && 
-		   account.getAccountBlance().doubleValue() <= configuration.getMaxBalance()) {
-			
-			accountCache.put(account.getAccountId(), account);
-		}
-		else {
-			
-			throw new InvalidAccountBalanceException("Bank Account Balance is outside of allowed thresholds");
-		}		
+	public void createAccount(Account account)
+	{
+		if(account.getAccountBalance().doubleValue() >= configuration.getMinBalance() && 
+				   account.getAccountBalance().doubleValue() <= configuration.getMaxBalance()) {
+					
+					accountCache.put(account.getAccountId(), account);
+				}
+				else {
+					
+					throw new InvalidAccountBalanceException("Bank Account Balance is outside of allowed thresholds");
+				}
 	}
 	
-	
-	public Account retrieveAccount(String accountId) {
-		
+	public Account retrieveAccount(String accountId)
+	{
 		return accountCache.get(accountId);
 	}
+
 }

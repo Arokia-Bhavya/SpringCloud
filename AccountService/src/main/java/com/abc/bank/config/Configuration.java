@@ -3,17 +3,13 @@ package com.abc.bank.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Component
-@ConfigurationProperties(prefix="account-service")
+@ConfigurationProperties(prefix="bank-account-service")
+@Data
 public class Configuration {
-	@Setter
-	@Getter
 	private Double minBalance;
-	
-	@Setter
-	@Getter
 	private Double maxBalance;
+
 }
