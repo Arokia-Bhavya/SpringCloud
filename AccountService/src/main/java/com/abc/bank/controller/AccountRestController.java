@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.abc.bank.model.Account;
@@ -20,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
+@RequestMapping("account")
 public class AccountRestController {
 	@Autowired
 	AccountService accountService;
@@ -34,7 +36,7 @@ public class AccountRestController {
 	}
 	
 	@GetMapping("/{accountId}")
-	public ResponseEntity<Account> getBankAccount(@PathVariable("accountId") String accountId){
+	public ResponseEntity<Account> getBankAccount(@PathVariable String accountId){
 		
 		Account account = accountService.retrieveAccount(accountId);		
 		log.info("retrieved bank account {}", account);		
