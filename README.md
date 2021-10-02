@@ -27,3 +27,9 @@
 - helps to route traffic to different instances
 - -Dserver.port configuration to generate random port
 - setting different profile while running spring boot app
+
+***API Gateway***
+
+***Circuit Breaker***
+
+***Distributed Tracing***
