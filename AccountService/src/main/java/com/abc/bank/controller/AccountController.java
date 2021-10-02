@@ -6,6 +6,7 @@ import java.net.URISyntaxException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,14 @@ public class AccountController {
 	
 	@Autowired
 	public AccountService accountService; 
+	@Value("${spring.application.instance_id}")
+	private String applicationInstanceId;
+	
+	@GetMapping("/info")
+	public ResponseEntity<String> getInfo()
+	{
+		return ResponseEntity.ok("instance "+applicationInstanceId);
+	}
 	
 	
 	@PostMapping("/bank-account")
