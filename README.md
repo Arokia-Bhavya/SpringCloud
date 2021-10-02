@@ -24,12 +24,14 @@
 
 
 ***Load Balancer***
-- helps to route traffic to different instances
+- helps to route traffic to different clients
 - -Dserver.port configuration to generate random port
 - setting different profile while running spring boot app
 
 ***API Gateway***
-
+- helps to route traffic to different servers
+- If it is registered as eureka client then route paths can be configured using eureka service id
+- If it is spring cloud project then route paths can be configured using host url
 ***Circuit Breaker***
 
 ***Distributed Tracing***
